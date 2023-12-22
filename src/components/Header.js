@@ -1,6 +1,5 @@
 // Header.js// Header.js
-
-import React from 'react';
+// Header.jsimport React from 'react';import React from 'react';
 import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
 import { FaSearch, FaCog, FaBars, FaBell } from 'react-icons/fa';
 import Search from '../pages/Search';
@@ -16,26 +15,27 @@ const Header = () => {
         {/* 왼쪽 상단 아이콘들 */}
         <div className="leftIcons">
           <Link to="/MenuPage" className="icon">
-            <FaBars size={24} />
+            <FaBars size={28} />
           </Link>
 
           <Link to="/Setting" className="icon">
-            <FaCog size={24} />
+            <FaCog size={28} />
           </Link>
         </div>
 
         {/* 가운데 텍스트 */}
         <div className="centerText">
-          <span>C a l V a c</span>
+          <span className="logoText">C a l V a c</span>
         </div>
 
         {/* 오른쪽 상단 아이콘들 */}
         <div className="rightIcons">
           <Link to="/Search" className="icon">
-            <FaSearch size={24} />
+            <FaSearch size={28} />
           </Link>
+
           <Link to="/Bell" className="icon">
-            <FaBell size={24} />
+            <FaBell size={28} />
           </Link>
         </div>
 
@@ -43,7 +43,7 @@ const Header = () => {
         <Routes>
           <Route path="/Search" element={<Search />} />
           <Route path="/Setting" element={<Setting />} />
-          <Route path="/Menu" element={<MenuPage />} />
+          <Route path="/MenuPage" element={<MenuPage />} />
           <Route path="/Bell" element={<Bell />} />
         </Routes>
       </div>

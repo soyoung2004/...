@@ -1,41 +1,81 @@
+// MenuPaUser
 import React, { useState } from 'react';
-import Modal from 'react-modal';
+import CalendarColorChangeButton from '../components/CalendarColorChangeButton.js';
 import FontChangeButton from '../components/FontChangeButton';
-import ColorChangeButton from '../components/CalendarColorChangeButton';
-import FontPreview from '../components/FontPreview';
+import Modal from 'react-modal';
 
 const Setting = () => {
-  const [isSettingOpen, setSettingOpen] = useState(false);
+  const [isModalOpen, setModalOpen] = useState(false);
 
-  const openSetting = () => {
-    setSettingOpen(true);
+  const handleOpenModal = () => {
+    setModalOpen(true);
   };
 
-  const closeSetting = () => {
-    setSettingOpen(false);
+  const handleCloseModal = () => {
+    setModalOpen(false);
   };
 
   return (
     <div>
-      <button onClick={openSetting}>설정</button>
-
-      <Modal
-        isOpen={isSettingOpen}
-        onRequestClose={closeSetting}
-        contentLabel="설정 팝업"
+      <div
+        onClick={handleOpenModal}
+        style={{
+          backgroundColor: '#ff6600',
+          color: '#fff',
+          fontSize: '20px',
+          fontWeight: 'bold',
+          padding: '15px 25px',
+          borderRadius: '25px',
+          cursor: 'pointer',
+          transition: 'background-color 0.3s ease',
+          display: 'flex',
+          alignItems: 'center'
+        }}
       >
-        <h2>설정</h2>
+        <h4 style={{ margin: '0' }}>설정 열기</h4>
+      </div>
 
-        {/* FontChangeButton */}
-        <FontChangeButton />
+      {/* Modal */}
+      <Modal
+        isOpen={isModalOpen}
+        onRequestClose={handleCloseModal}
+        contentLabel="설정 팝업"
+        style={{
+          overlay: {
+            backgroundColor: 'rgba(0, 0, 0, 0.5)',
+            zIndex: 1000
+          },
+          content: {
+            padding: '20px',
+            borderRadius: '10px',
+            maxWidth: '400px',
+            margin: 'auto',
+            backgroundColor: '#fff',
+            boxShadow: '0 0 10px rgba(0, 0, 0, 0.3)'
+          }
+        }}
+      >
+        <h3>설정</h3>
 
-        {/* FontPreview */}
-        <FontPreview />
+        {/* 색상 변경 버튼 */}
+        <h4>색상 변경</h4>
+        <CalendarColorChangeButton
+          colors={['red', 'blue', 'yellow', 'green', 'black', 'white']}
+          onChangeColor={(color) => {
+            console.log(`색상 변경: ${color}`);
+          }}
+        />
 
-        {/* ColorChangeButton */}
-        <ColorChangeButton />
+        {/* 폰트 변경 버튼 */}
+        <h4>폰트 변경</h4>
+        <FontChangeButton
+          onChangeFontStyle={() => {
+            console.log('폰트 변경');
+          }}
+        />
 
-        <button onClick={closeSetting}>닫기</button>
+        {/* 팝업 닫기 버튼 */}
+        <button onClick={handleCloseModal}>닫기</button>
       </Modal>
     </div>
   );

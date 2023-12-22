@@ -1,0 +1,28 @@
+/* TimeSlotScheduler.css */
+/* TimeSlotScheduler.css */
+/* TimeSlotScheduler.css */
+
+.time-slot-scheduler {
+    font-size: 18px;
+  }
+  
+  .scheduler-label {
+    font-size: 18px;
+  }
+  
+  .time-selector {
+    font-size: 18px;
+  }
+  
+  .schedule-input {
+    font-size: 18px;
+  }
+  
+  .add-schedule-button {
+    font-size: 18px;
+  }
+  
+  .spacer {
+    height: 10px; /* 간격의 높이를 조절합니다. */
+  }
+  

@@ -1,18 +1,20 @@
 // ColorChangeButton.js
-import React, { useState } from 'react';
+import React from 'react';
 
-const CalendarColorChangeButton = () => {
-  const [color, setColor] = useState('#000000'); // Example state, replace with your logic
+const ColorChangeButton = ({ onSelectColor }) => {
+  const colors = ['#FF0000', '#FF7F00', '#FFFF00', '#7FFF00', '#00FF00', '#00FF7F', '#00FFFF', '#007FFF', '#0000FF', '#7F00FF'];
 
-  const handleChangeColor = () => {
-    // Implement your logic to change the color
+  const handleChangeColor = (color) => {
+    onSelectColor(color);
   };
 
   return (
     <div>
-      <button onClick={handleChangeColor}>Change Color</button>
+      {colors.map((color, index) => (
+        <div key={index} style={{ backgroundColor: color, width: '30px', height: '30px', margin: '5px', cursor: 'pointer' }} onClick={() => handleChangeColor(color)} />
+      ))}
     </div>
   );
 };
 
-export default CalendarColorChangeButton;
+export default ColorChangeButton;

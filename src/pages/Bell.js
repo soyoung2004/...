@@ -46,7 +46,6 @@ const Bell = () => {
         <button onClick={closeBellModal}>닫기</button>
       </Modal>
 
-      <button onClick={() => navigate(-1)}>뒤로 가기</button>
     </div>
   );
 };

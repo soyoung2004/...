@@ -6,7 +6,7 @@ const RoomListPage = ({ rooms }) => {
   return (
     <div>
       <div className="room-list-page">
-        <h3>방 목록</h3>
+        <h3 style={{ fontSize: '38px' }}>방 목록</h3>
         {!rooms || rooms.length === 0 ? (
           <p>방이 없습니다.</p>
         ) : (
@@ -25,4 +25,5 @@ const RoomListPage = ({ rooms }) => {
 };
 
 export default RoomListPage;
+
 

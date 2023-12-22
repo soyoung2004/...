@@ -8,7 +8,7 @@ const FriendListPage = ({ friends, onFriendSelect }) => {
 
   return (
     <div>
-      <h3>친구 목록</h3>
+      <h3 style={{ fontSize: '38px' }}>친구 목록</h3>
       {friendsList.length === 0 ? (
         <p>친구가 없습니다.</p>
       ) : (
